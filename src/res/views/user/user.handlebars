@@ -1,0 +1,64 @@
+<a href="/user/create">thêm</a>
+<table class="table mt-4">
+  <thead>
+    <tr>
+      <th>Stt</th>
+      <th scope="col">Tên</th>
+      <th scope="col">email</th>
+      <th scope="col">số điện thoại</th>
+      <th scope="col">ngày tạo</th>
+    </tr>
+  </thead>
+  <tbody>
+     {{#each Users}}
+    <tr>
+        <th>{{sum @index 1}}</th>
+        <th scope="row">{{this.name}}</th>
+        <td>{{this.mail}}</td>
+        <td>{{this.phone}}</td>
+        <td>{{this.createdAt}}</td>
+        <td><a href="user/update/{{this.slug}}">update</a></td>
+        <td><a data-bs-toggle="modal" data-bs-slug={{this.slug}} data-bs-target="#exampleModal">delete</a></td> 
+    </tr>
+        {{else}}
+        <h1>bạn chưa thêm người dùng nào</h1>
+        <a href="user/create">them ngay</a>
+    {{/each}}
+    
+  </tbody>
+</table>
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Xác nhận</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Xác nhận xoá
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">no</button>
+        <button type="button" id="button-delete" class="btn btn-primary">yes</button>
+      </div>
+    </div>
+  </div>
+</div>
+<form id="submit-delete" method="post" "></form>
+<script>
+  const exampleModal = document.getElementById('exampleModal')
+  exampleModal.addEventListener('show.bs.modal', event => {
+  // Button that triggered the modal
+  const button = event.relatedTarget
+  // Extract info from data-bs-* attributes
+  const recipient = button.getAttribute('data-bs-slug')
+  const btn = document.getElementById('button-delete')
+  const btn_delete = document.getElementById('submit-delete')
+  btn.onclick = function(){
+    btn_delete.action= "user/delete/"+recipient+"?_method=put"
+    btn_delete.submit()
+  }
+})
+</script>

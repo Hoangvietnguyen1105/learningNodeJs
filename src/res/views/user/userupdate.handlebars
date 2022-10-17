@@ -1,0 +1,13 @@
+<h1>thông tin chỉnh sửa</h1>
+{{#each Users}}
+<form method="post" action="/user/update/{{this.slug}}?_method=put">
+    
+        name<input type="text" name="name" value="{{this.name}}"/><br>
+        age<input type="text" name="age" value="{{this.age}}"/><br>
+        phone<input type="text" name="phone" value="{{this.phone}}"/><br>
+        gmail<input type="text" name="mail" value="{{this.mail}}"/>
+        <input type="submit">
+    
+    
+</form>
+{{/each}}

@@ -1,0 +1,41 @@
+{
+  "name": "firstnode",
+  "version": "1.0.0",
+  "description": "my first nodejs project",
+  "main": "src/index.js",
+  "scripts": {
+    "beatiful": "prettier --single-quote --trailing-comma all --write src/**/*.{js,json,scss}",
+    "start": "nodemon --inspect src/index.js",
+    "watch": "node-sass --watch src/res/scss/app.scss src/public/css/app.css",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Hoangvietnguyen1105/node.git"
+  },
+  "keywords": [
+    "first",
+    "learning"
+  ],
+  "author": "hoangviet",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Hoangvietnguyen1105/node/issues"
+  },
+  "homepage": "https://github.com/Hoangvietnguyen1105/node#readme",
+  "dependencies": {
+    "express": "^4.18.1",
+    "express-handlebars": "^6.0.6",
+    "method-override": "^3.0.0",
+    "mongoose": "^6.6.1",
+    "mongoose-delete": "^0.5.4",
+    "mongoose-slug-generator": "^1.0.4",
+    "morgan": "^1.10.0",
+    "node-sass": "^7.0.3"
+  },
+  "devDependencies": {
+    "husky": "^8.0.1",
+    "lint-staged": "^13.0.3",
+    "prettier": "^2.7.1"
+  }
+}
